@@ -26,7 +26,19 @@ function specialChar() {
 }
 // Write password to the #password input
 function writePassword() {
-    var passwordLength = prompt("Enter desired password length between 8-128");
+
+    var passwordLength = 0
+    // for (passwordLength! >= 8 && passwordLength! <= 128) {
+    //     alert("Please enter a valid passowrd length");
+    // }
+    // else {
+
+    while (passwordLength < 8 || passwordLength > 128) {
+             passwordLength = prompt("Enter desired password length between 8-128");
+        if (passwordLength < 8 || passwordLength > 128) {
+            alert("please enter a valid passowrd length");
+        }
+    }      
     var upperCase = confirm("Would you like your password to include Upper Case letters?");
     var lowerCase = confirm("Would you like your Password to include lower case letters?");
     var specChar = confirm("Would you like your password to include special characters?");
