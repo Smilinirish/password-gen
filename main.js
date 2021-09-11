@@ -36,7 +36,7 @@ function writePassword() {
     while (passwordLength < 8 || passwordLength > 128) {
              passwordLength = prompt("Enter desired password length between 8-128");
         if (passwordLength < 8 || passwordLength > 128) {
-            alert("please enter a valid passowrd length");
+            alert("please enter a valid password length");
         }
     }      
     var upperCase = confirm("Would you like your password to include Upper Case letters?");
