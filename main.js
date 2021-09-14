@@ -1,4 +1,3 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 var randomFunction = {
     Num: ranNum,
@@ -28,21 +27,19 @@ function specialChar() {
 function writePassword() {
 
     var passwordLength = 0
-    // for (passwordLength! >= 8 && passwordLength! <= 128) {
-    //     alert("Please enter a valid passowrd length");
-    // }
-    // else {
-
+    // error handeling for passowrd lengths not meeting requirement as well as collecting desired passoword length
     while (passwordLength < 8 || passwordLength > 128) {
-             passwordLength = prompt("Enter desired password length between 8-128");
+        passwordLength = prompt("Enter desired password length between 8-128");
         if (passwordLength < 8 || passwordLength > 128) {
             alert("please enter a valid password length");
         }
-    }      
+    }
+    // peramaters for password 
     var upperCase = confirm("Would you like your password to include Upper Case letters?");
     var lowerCase = confirm("Would you like your Password to include lower case letters?");
     var specChar = confirm("Would you like your password to include special characters?");
     var Num = confirm("Would you like your password to include Numbers?");
+    
     var password = generatePassword(passwordLength, upperCase, lowerCase, specChar, Num);
     function generatePassword(passwordLength, upperCase, lowerCase, specChar, Num) {
         var paramatercount = upperCase + lowerCase + specChar + Num;
@@ -52,6 +49,7 @@ function writePassword() {
             return ""
         }
         var generatedPassword = ""
+        // loop for randomly selecting what type of character to randomly add to the password 
         for (var i = 0; i < passwordLength; i++) {
             var funcName = Object.keys(paramaterArry[Math.floor(Math.random() * paramatercount)]);
             generatedPassword += randomFunction[funcName]();
@@ -61,8 +59,6 @@ function writePassword() {
         passwordText.value = password;
         return generatedPassword;
     }
-    console.log(generatePassword())
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
